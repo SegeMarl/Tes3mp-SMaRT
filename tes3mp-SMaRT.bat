@@ -715,7 +715,7 @@ IF %ERRORLEVEL% EQU 6 set RHour= 6
 IF %ERRORLEVEL% EQU 5 set RHour= 5
 IF %ERRORLEVEL% EQU 4 set RHour= 4
 IF %ERRORLEVEL% EQU 3 set RHour= 3
-IF %ERRORLEVEL% EQU 2 set RHour= 2 
+IF %ERRORLEVEL% EQU 2 set RHour= 2
 IF %ERRORLEVEL% EQU 1 set RHour= 1
 echo.
 echo Minute (A)  (B)  (C)  (D) 
