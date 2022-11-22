@@ -1,5 +1,6 @@
 # Tes3mp-SMaRT
-Server Monitor and Rebooting Tool
+The Elder Scroll 3 Multiplayer - Server Monitor and Rebooting Tool
+
 You can use this batch file to automate the restarting and backing up of your Tes3mp server.
 
   During first launch it has a helpful setup will allow you enable several features including:
