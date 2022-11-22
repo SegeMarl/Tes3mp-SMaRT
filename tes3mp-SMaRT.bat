@@ -1,4 +1,4 @@
-:: Feel free to Canibalize my aweful code if you think you could use it in your own project. Ot fell free to message
+:: Feel free to cannibalize my awful code if you think you could use it in your own project. Or feel free to message
 :: me about making you a specialized .bat This only took like a week to make. 
 :: All ASCII art was generated at Lunicode.com
 
@@ -79,7 +79,7 @@ set Month=Dec
 :: Set the current date in day-month-year format
 set /p mydate=%date:~7,2%-%Month%-%date:~10,4%
 
-::Check if Server needs to retsart.
+::Check if Server needs to restart.
 goto restartcheck
 
 :: Run Check if server exe is running.
@@ -87,7 +87,7 @@ goto restartcheck
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto ProcessFound
 goto ProcessNotFound
 
-:: Sucess State, Server is running.
+:: Success State, Server is running.
 :ProcessFound
 echo.
 echo [%date% %time%] %EXE% is running
@@ -151,7 +151,7 @@ echo.
 If %CellBackup%==0 ( goto SkipCellBackup)
 
 :: Backup Cells listed in SMaRT-Settings.txt
-:: Extra cells can backed up by copying line 165, pasting it on line 164 and changing the 10's to 11 and so on.
+:: Extra cells can be backed up by copying line 165, pasting it on line 164 and changing the 10's to 11 and so on.
 :: If you add extra lines here, you must also add extra lines in the Settings sheet or the program could crash.
 If Not %CellName1%==0 ( copy /y "%LocalPath%\server\data\cell\%CellName1%.json" "%LocalPath%\SMaRT-Cell-Backup\%CellName1%-%mydate%-%time:~0,2%-%time:~3,2%.json")
 If Not %CellName2%==0 ( copy /y "%LocalPath%\server\data\cell\%CellName2%.json" "%LocalPath%\SMaRT-Cell-Backup\%CellName2%-%mydate%-%time:~0,2%-%time:~3,2%.json")
@@ -174,7 +174,7 @@ IF %EnableLogging%==1 (
 :: Check if Character backup is enabled
 If %BackupCharacter%==0 ( goto ResumeRestart)
 
-:: Loop to separate charachter Backups. Default is 5, but you could keep more by changing the LEQ # and Adding more folders
+:: Loop to separate Character Backups. Default is 5, but you could keep more by changing the LEQ # and Adding more folders
 :Backup1
 If %BackupNumber% LEQ 5 ( goto Backup2)
 set /a BackupNumber=1
@@ -187,7 +187,7 @@ IF %EnableLogging%==1 (
 	Echo Backing up Player Data. >> %LocalPath%\SMaRT-Logs\tes3mp-SMaRT-Log%mydate%.txt
 	Echo. 						 >> %LocalPath%\SMaRT-Logs\tes3mp-SMaRT-Log%mydate%.txt
 )
-copy /y "%LocalPath%\server\data\player\*.json" "%LocalPath%\SMaRT-Charachter-Backup\Backup%BackupNumber%"
+copy /y "%LocalPath%\server\data\player\*.json" "%LocalPath%\SMaRT-Character-Backup\Backup%BackupNumber%"
 echo Number is %BackupNumber%
 set /a "BackupNumber=%BackupNumber%+1"
 echo %BackupNumber% > backupcount.txt
@@ -219,7 +219,7 @@ Set CustomFPEnable=0 & Set FilePath=%cd% & Set bgc=0 & Set fnt=F & Set EnableLog
 color 0f
 cls
 call :logo
-Echo Color choices from this list are not case sensitve.
+Echo Color choices from this list are not case sensitive.
 echo.
 echo    0 = Black       8 = Gray
 echo    1 = Blue        9 = Light Blue
@@ -329,7 +329,7 @@ set retrytime=0
 Set Reboot-1=1
 cls
 call :logo
-echo What time would you like to reset to server? (Use letters)
+echo What time would you like to reset the server? (Use letters)
 call :TimePicker
 If %retrytime%==1 ( goto OneBootTimeSchedule)
 call :CompileTimes
@@ -434,7 +434,7 @@ IF %ERRORLEVEL% EQU 1 ( Set BackupCharacter=1 & goto BackupFrequency )
 :BackupFrequency
 cls
 call :logo
-echo How often would you like to backup you player's character data? 
+echo How often would you like to backup your player's character data? 
 echo [1] Every Reboot [2] Every Other Reboot [3] Once a Day [B]ack
 CHOICE /C 123b /n
 IF %ERRORLEVEL% EQU 4 goto CharacterBackup
@@ -447,7 +447,7 @@ cls
 call :logo
 echo Would you like to enable Cell Backup? [Y/N] [B]ack
 echo This will require editing the SMaRT-Settings.txt and is only recommended if you know your cell names,
-echo and are worried about cell wipes due to instaled scripts or griefing.
+echo and are worried about cell wipes due to installed scripts or griefing.
 CHOICE /C ynb /n
 IF %ERRORLEVEL% EQU 3 goto BackupFrequency
 IF %ERRORLEVEL% EQU 2 set CellBackup=0
@@ -504,7 +504,7 @@ goto top
 ::===============================================Start=Callable=Lines================================================::
 :: Widget List if you wanna snag something
 
-:: Time Compilier -------Line 516
+:: Time Compiler -------Line 516
 :: Settings Sheet output Line 560
 :: Time set widget ------Line 703
 :: Folder Creator -------Line 744
@@ -585,7 +585,7 @@ Echo Set FilePath^=%FilePath% >> SMaRT-Settings.txt
 Echo. >> SMaRT-Settings.txt
 Echo ::^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=:: >> SMaRT-Settings.txt
 Echo. >> SMaRT-Settings.txt
-Echo :: bcg is Backgroung color from the below chart >> SMaRT-Settings.txt
+Echo :: bcg is Background color from the below chart >> SMaRT-Settings.txt
 Echo :: fnt if the Font color from the below chart >> SMaRT-Settings.txt
 Echo. >> SMaRT-Settings.txt
 Echo Set bgc^=%bgc% >> SMaRT-Settings.txt
@@ -656,7 +656,7 @@ Echo Set BackupCharacter^=%BackupCharacter% >> SMaRT-Settings.txt
 Echo. >> SMaRT-Settings.txt
 Echo ::^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=:: >> SMaRT-Settings.txt
 Echo. >> SMaRT-Settings.txt
-Echo :: Frequency of charachter backups can be >> SMaRT-Settings.txt
+Echo :: Frequency of character backups can be >> SMaRT-Settings.txt
 Echo :: Every time the server resets [1] >> SMaRT-Settings.txt
 Echo :: Every other server reset [2] >> SMaRT-Settings.txt
 Echo :: Once a day [3] >> SMaRT-Settings.txt
@@ -669,19 +669,19 @@ Echo :: Setting CellBackup to 1 will enable the backing up of specific cells in 
 Echo :: Cell Names are Located in %FilePate%^\server^\data^\cell and are .json files. >> SMaRT-Settings.txt
 Echo :: You must have visited the cell in game for the [CellName].json to generate. >> SMaRT-Settings.txt
 Echo :: Unless you a cell reset script like CCSuite or have troublesome players that could damage personal homes or Faction >> SMaRT-Settings.txt
-Echo :: buildings and need consistant backups, it is recommended that you leave this set to 0 >> SMaRT-Settings.txt
+Echo :: buildings and need consistent backups, it is recommended that you leave this set to 0 >> SMaRT-Settings.txt
 Echo. >> SMaRT-Settings.txt
 Echo Set CellBackup=%CellBackup% >> SMaRT-Settings.txt
 Echo. >> SMaRT-Settings.txt
 Echo ::^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=^=:: >> SMaRT-Settings.txt
 Echo. >> SMaRT-Settings.txt
 Echo :: There are only 10 Backupable cells by default in the SMaRT.bat, if you need to add more open .bat in a text editor >> SMaRT-Settings.txt
-Echo :: of choice ^(Notepad++ is recomended^) and go to lines 155-165, and copy the code If Not CellName1^=^=0 ^(ECT.^) >> SMaRT-Settings.txt
-Echo :: and paste it as many times as you need cells to back up. Then in this settings document add a coresponding number>> SMaRT-Settings.txt
+Echo :: of choice ^(Notepad++ is recommended^) and go to lines 155-165, and copy the code If Not CellName1^=^=0 ^(ECT.^) >> SMaRT-Settings.txt
+Echo :: and paste it as many times as you need cells to back up. Then in this settings document add a corresponding number>> SMaRT-Settings.txt
 Echo :: of Set Cellname[#]^=[CellName] under the rest.>> SMaRT-Settings.txt
 Echo :: REMEMBER TO CHANGE THE #s IF YOU ADD MORE THAN 10 CELLs. Failure to do so can and probably will break SMaRT.bat>> SMaRT-Settings.txt
 Echo. >> SMaRT-Settings.txt
-Echo :: Only include the name of the file, the .json should not be included in ths section. >> SMaRT-Settings.txt
+Echo :: Only include the name of the file, the .json should not be included in this section. >> SMaRT-Settings.txt
 Echo :: Example "CellName1=Balmora Stronghold" is correct, "CellName1=Balmora Stronghold.json" is incorrect. >> SMaRT-Settings.txt
 Echo. SMaRT-Settings.txt
 Echo Set CellName1=0 >> SMaRT-Settings.txt
@@ -731,7 +731,7 @@ CHOICE /c ap /n
 IF %ERRORLEVEL% EQU 2 set RDay=PM
 IF %ERRORLEVEL% EQU 1 set RDay=AM
 echo.
-echo Comfirm you want to restart at %RHour%%RMinute%%RDay%? [Y/N]
+echo Confirm you want to restart at %RHour%%RMinute%%RDay%? [Y/N]
 CHOICE /c yn /n
 IF %ERRORLEVEL% EQU 2 goto ExitPickerNo
 IF %ERRORLEVEL% EQU 1 goto ExitPicker
@@ -747,12 +747,12 @@ IF %EnableLogging%==1 (
 	IF NOT EXIST %FilePath%\SMaRT-Logs mkdir %FilePath%\SMaRT-Logs
 )
 IF %BackupCharacter%==1 (
-	IF NOT EXIST %FilePath%\SMaRT-Charachter-Backup mkdir %FilePath%\SMaRT-Charachter-Backup
-	IF NOT EXIST %FilePath%\SMaRT-Charachter-Backup\Backup1 mkdir %FilePath%\SMaRT-Charachter-Backup\Backup1
-	IF NOT EXIST %FilePath%\SMaRT-Charachter-Backup\Backup2 mkdir %FilePath%\SMaRT-Charachter-Backup\Backup2
-	IF NOT EXIST %FilePath%\SMaRT-Charachter-Backup\Backup3 mkdir %FilePath%\SMaRT-Charachter-Backup\Backup3
-	IF NOT EXIST %FilePath%\SMaRT-Charachter-Backup\Backup4 mkdir %FilePath%\SMaRT-Charachter-Backup\Backup4
-	IF NOT EXIST %FilePath%\SMaRT-Charachter-Backup\Backup5 mkdir %FilePath%\SMaRT-Charachter-Backup\Backup5
+	IF NOT EXIST %FilePath%\SMaRT-Character-Backup mkdir %FilePath%\SMaRT-Character-Backup
+	IF NOT EXIST %FilePath%\SMaRT-Character-Backup\Backup1 mkdir %FilePath%\SMaRT-Character-Backup\Backup1
+	IF NOT EXIST %FilePath%\SMaRT-Character-Backup\Backup2 mkdir %FilePath%\SMaRT-Character-Backup\Backup2
+	IF NOT EXIST %FilePath%\SMaRT-Character-Backup\Backup3 mkdir %FilePath%\SMaRT-Character-Backup\Backup3
+	IF NOT EXIST %FilePath%\SMaRT-Character-Backup\Backup4 mkdir %FilePath%\SMaRT-Character-Backup\Backup4
+	IF NOT EXIST %FilePath%\SMaRT-Character-Backup\Backup5 mkdir %FilePath%\SMaRT-Character-Backup\Backup5
 	IF NOT EXIST backupcount.txt echo 1 > backupcount.txt
 )
 IF %CellBackup%==1 (
@@ -803,10 +803,10 @@ If %Reboot-2%==1 ( Echo Second Reboot is at %RebootTime2% and is named %RebootTi
 If %Reboot-3%==1 ( Echo Third Reboot is at %RebootTime3% and is named %RebootTime3Name%.)
 If %Reboot-4%==1 ( Echo Fourth Reboot is at %RebootTime4% and is named %RebootTime4Name%.)
 echo.
-If %BackupCharacter%==1 ( echo Characther backup is Enabled.)
-If %BackupCharacter%==0 ( echo Characther backup is Disabled.)
+If %BackupCharacter%==1 ( echo Character backup is Enabled.)
+If %BackupCharacter%==0 ( echo Character backup is Disabled.)
 echo.
-If %BackupCharacter%==1 ( echo Character backup frequecy is set to %CharBackupFreq%.)
+If %BackupCharacter%==1 ( echo Character backup frequency is set to %CharBackupFreq%.)
 echo.
 If %CellBackup%==1 ( echo Advanced setting Cell Backup is Enabled, open SMaRT-Settings.txt to edit.)
 exit /b
