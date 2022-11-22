@@ -26,7 +26,7 @@ if %CustomFPEnable%==1 set LocalPath=%FilePath%
 if %CustomFPEnable%==0 set LocalPath=%cd%
 
 color %bgc%%fnt%
-
+::if future versions of Tes3mp change the name of the executable, you will need to change this!
 set EXE=tes3mp-server.exe
 Set /a BackupNumber=<backupcount.txt
 
