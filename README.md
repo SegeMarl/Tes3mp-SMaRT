@@ -2,18 +2,14 @@
 Server Monitor and Rebooting Tool
 You can use this batch file to automate the restarting and backing up of your Tes3mp server.
 
-Simply put the batch file in the same folder as the Tes3mp server, or copy the link to that folder and ender it during setup.
-The batch will you ask you some simple questions about what you want backed up and when you want the server restarted.
-All of the settings will be saved to SMaRT-Settings.txt which can be eddited once it is generated should you wish to change your settings.
+  During first launch it has a helpful setup will allow you enable several features including:
 
-settings include:
-File path to Tes3mp-server.exe
-Color scheme of dos window 
-Logging (true or false)
-Server Reboot (true or false)
-Reboot times (reboot 1-4 will be set to true or false and have a time of day associated with each)
-Character backup (true or false)
-Cell Backup (true or false, but the individual cells will need to be added by editing the settings.txt)
+  Logging (creates a log file with the status of the server and will restart in the case of a crash)
 
-The settings file has plenty of documentation.
-Feel free to reach out if there's any issues with the program.
+  Server Reboot (Can reboot the 1 to 4 times a day at specified times)
+
+  Character backup (all jsons are copied with timestamps for ease of data recovery)
+
+  Cell Backup (save up to 10 seperate json to protect against griefing or automatic deletion from server scripts. Individual cells will need to be added by editing the settings.txt, and more than 10 cells can be added by copying line 165 in the .bat and increasing the count.)
+
+Both the batch and settings files have plenty of documentation to make them as user friendly as possible, but feel free to reach out if there's any issues with the program.
