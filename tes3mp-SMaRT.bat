@@ -4,7 +4,7 @@
 
 ::====================================================Start=Batch====================================================::
 @echo off
-Title The Elder Scrolls 3 Multiplayer Server Monitor and Reboot Tool v 1.0
+Title The Elder Scrolls 3 Multiplayer Server Monitor and Reboot Tool v 2.1
 Color 0f
 mode con: cols=120
 Call :endlogo
